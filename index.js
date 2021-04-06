@@ -44,7 +44,7 @@ const getJapaneseTomorrowWeather = async (city) => {
         
         for (const forecast of data.forecasts) {
             if (forecast.dateLabel == '明日') {
-                const weather = forecast.detail.weather;
+                const weather = forecast.detail.weather.split('　').join(' ');
                 let precipitation = 0;
                 for (const time in forecast.chanceOfRain) {
                     const percent = +forecast.chanceOfRain[time];
@@ -53,7 +53,7 @@ const getJapaneseTomorrowWeather = async (city) => {
                 const high = forecast.temperature.max.celsius;
                 const low = forecast.temperature.min.celsius;
                 const date = forecast.date;
-                text = `${date}の天気：${weather}，${null === high ? '--' : high} °C/${null === low ? '--' : low} °C，${precipitation} %`;
+                text = `${date}の天気：${weather}，${null === high ? '--' : high} °C / ${null === low ? '--' : low} °C，${precipitation} %`;
                 break;
             }
         }
