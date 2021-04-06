@@ -7,9 +7,8 @@ const service = new cron.TwitterCron();
 (async () => {
     //
     await service.updateTwitterData();
-    console.log(service);
     await service.postStatus();
-    await service.postFollowed();
+    await service.postUnfollowed();
     await service.getTomorrowWeather();
     service.saveData();
 })();
