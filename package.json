@@ -1,0 +1,24 @@
+{
+  "name": "twitter-cron-daily",
+  "version": "1.0.0",
+  "description": "Daily Twitter cron script for personal use",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metastable-void/twitter-cron.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/metastable-void/twitter-cron/issues"
+  },
+  "homepage": "https://github.com/metastable-void/twitter-cron#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "isomorphic-fetch": "^3.0.0",
+    "twitter-lite": "^1.1.0"
+  }
+}
