@@ -228,6 +228,13 @@ class TwitterCron {
             let text = `Unfollowed by: \nhttps://twitter.com/intent/user?user_id=${id}\nID: ${id}`;
             if (id in this.users) {
                 const user = this.users[id];
+                if (!user.protected) {
+                    try {
+                        await twitterClient.get('statuses/user_timeline', {user_id: id});
+                    } catch (e) {
+                        text += '\nIt looks I have been blocked by this user.';
+                    }
+                }
                 text += `\nScreen name: ${user.screenName}\nName: ${user.name}`
             }
             await this.postTweet(text);

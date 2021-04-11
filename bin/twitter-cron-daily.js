@@ -11,4 +11,4 @@ const service = new cron.TwitterCron();
     await service.postUnfollowed();
     await service.getTomorrowWeather();
     service.saveData();
-})();
+})().catch(e => console.error(e));
