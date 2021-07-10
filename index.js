@@ -48,7 +48,7 @@ const getJapaneseTomorrowWeather = async (city) => {
                 let precipitation = 0;
                 for (const time in forecast.chanceOfRain) {
                     const percent = +forecast.chanceOfRain[time];
-                    if (!isNaN(percent)) precipitation = Math.max(precipitation, percent);
+                    if (!isNaN(parseInt(percent))) precipitation = Math.max(precipitation, parseInt(percent));
                 }
                 const high = forecast.temperature.max.celsius;
                 const low = forecast.temperature.min.celsius;
