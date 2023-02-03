@@ -18,6 +18,8 @@ const JAPANESE_CITIES = {
 exports.JAPANESE_CITIES = JAPANESE_CITIES;
 
 const twitterClient = new Twitter({
+    version: "2",
+    extension: false,
     consumer_key: process.env.TWITTER_API_KEY,
     consumer_secret: process.env.TWITTER_API_KEY_SECRET,
     access_token_key: process.env.TWITTER_ACCESS_TOKEN,
@@ -114,8 +116,8 @@ class TwitterCron {
     }
 
     async postTweet(text) {
-        return await twitterClient.post('statuses/update', {
-            status: `${this.screenName ? '@' + this.screenName : ''}\n${text}\n#真空bot`
+        return await twitterClient.post('tweets', {
+            text: `${this.screenName ? '@' + this.screenName : ''}\n${text}\n#真空bot`
         });
     }
 

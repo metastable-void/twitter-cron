@@ -104,3 +104,6 @@ dist
 .tern-port
 
 state.json
+
+.DS_Store
+._*
